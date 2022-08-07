@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Overpass', sans-serif;
+      font-size: 15px;
+      background: hsl(216, 12%, 8%);
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: calc(100vh - 14px);
+    }
+
+    .content {
+      max-width: 400px;
+      border-radius: 30px;
+      padding: 2rem;
+      /* background: #171e28; */
+      background: rgb(35,42,52);
+      background: linear-gradient(170deg, rgba(35,42,52,1) 30%, rgba(23,30,40,1) 100%);
+    }
+
+    .content .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #262f38;
+    }
+
+    .content .head {
+      margin-top: 2rem;
+    }
+
+    .content .head h1 {
+      font-size: 1.8rem;
+      color: hsl(0, 0%, 100%);
+    }
+
+    .content .detail {
+      margin-top: .5rem;
+    }
+
+    .content .detail p {
+      color: hsl(216, 12%, 54%);
+      line-height: 1.6;
+    }
+
+    .level {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .level-item {
+      font-family: 'Overpass', sans-serif;
+      font-weight: 700;
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      border: 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: hsl(216, 12%, 54%);
+      background: #262f38;
+      transition: all 0.5s ease;
+    }
+
+    .level-item:hover {
+      color: #fff;
+      background: #7c8896;
+    }
+
+    .item_active {
+      color: #fff;
+      background: hsl(25, 97%, 53%);
+    }
+
+    .button {
+      margin-top: 2rem;
+    }
+
+    .button button {
+      font-family: 'Overpass', sans-serif;
+      font-weight: bold;
+      width: 100%;
+      padding: 1rem 0;
+      border: none;
+      border-radius: 50px;
+      letter-spacing: 0.2rem;
+      color: hsl(0, 0%, 100%);
+      background: hsl(25, 97%, 53%);
+      cursor: pointer;
+      transition: all 0.5s ease;
+    }
+
+    .button button:hover {
+      color: hsl(25, 97%, 53%);
+      background: hsl(0, 0%, 100%);
+    }
+
+    .img-head {
+      display: flex;
+      justify-content: center;
+    }
+
+    .box-step {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .box-step p {
+      vertical-align: middle;
+      line-height: 1;
+      border-radius: 50px;
+      padding: 5px 20px;
+      padding-top: 8px;
+      color: hsl(25, 97%, 53%);
+      background: #273039;
+    }
+
+    @media only screen and (max-width: 375px) {
+      .content {
+        margin: 0 20px;
+      }
+    }
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    
+
+    <div class="content" id="Rating">
+      <div class="icon">
+        <img src="images/icon-star.svg">
+      </div>
+      <div class="head">
+        <h1>How did we do?</h1>
+      </div>
+      <div class="detail">
+        <p>Please let us know how we did with your support request. All feedback is appreciated 
+          to help us improve our offering!</p>
+      </div>
+      <div class="level">
+        <button class="level-item" value="1">1</button>
+        <button class="level-item" value="2">2</button>
+        <button class="level-item" value="3">3</button>
+        <button class="level-item" value="4">4</button>
+        <button class="level-item" value="5">5</button>
+      </div>
+      <div class="button">
+        <button type="button" id="submit" disabled>SUBMIT</button>
+      </div>
+    </div>
+
+    <div class="content" id="Thank_you" style="display: none;">
+      <div class="img-head">
+        <img src="images/illustration-thank-you.svg">
+      </div>
+      <div class="box-step">
+        <p >You selected <span class="selected">4</span> out of 5</p>
+      </div>
+      <div class="head">
+        <h1 style="text-align: center;">Thank you!</h1>
+      </div>
+      <div class="detail">
+        <p style="text-align: center;">We appreciate you taking the time to give a rating. If you ever need more support, 
+          don’t hesitate to get in touch!</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://bio.link/nueng">Nueng Sittha</a>.
+  </div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $('.level-item').click(function() {
+        $('.level-item').removeClass('item_active');
+        $(this).addClass('item_active');
+        $('#submit').removeAttr('disabled');
+    });
+
+    $('#submit').click(function() {
+        $('#Rating').hide();
+        $('#Thank_you').show();
+        var selected = $('.item_active').val();
+        $('.selected').text(selected);
+    });
+
+
+</script>
